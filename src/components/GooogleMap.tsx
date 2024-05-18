@@ -1,4 +1,4 @@
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 import { useState } from "react";
 
 // * Define some helper variables
@@ -32,7 +32,12 @@ export default function GooogleMap() {
       zoom={10}
       //   onLoad={onLoad}
       //   onUnmount={onUnmount}
-    ></GoogleMap>
+    >
+      {/* Add Markers */}
+      <Marker position={center} />
+      <Marker position={giza} />
+      <Marker position={elShikhZaid} />
+    </GoogleMap>
   ) : (
     <>Gooogle Mapppppp</>
   );
