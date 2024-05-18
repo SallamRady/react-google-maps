@@ -25,6 +25,16 @@ export default function GooogleMap() {
     googleMapsApiKey: "AIzaSyCLMkS3uH2eW8Fn7a36lKama2jJW9KFFhc",
   });
 
+  // TODO::declare and define helper methods
+  const handleMapClick = (e: google.maps.MapMouseEvent) => {
+    const { latLng } = e;
+    const lat = latLng?.lat();
+    const lng = latLng?.lng();
+    if (lat && lng) {
+      console.log("Map is clicked ::", lat, lng);
+    }
+  };
+
   return isLoaded ? (
     <GoogleMap
       mapContainerStyle={containerStyle}
@@ -32,6 +42,7 @@ export default function GooogleMap() {
       zoom={10}
       //   onLoad={onLoad}
       //   onUnmount={onUnmount}
+      onClick={handleMapClick}
     >
       {/* Add Markers */}
       <Marker position={center} />
